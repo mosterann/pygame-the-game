@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#Player file for Megaman
+#Player file for The chronicles of Mosterann
 #Gamedevelopers: Mosterann and Darkdefender
 
 #from ImageHandler import ImageHandler

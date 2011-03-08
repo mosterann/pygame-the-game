@@ -5,15 +5,21 @@
 
 import pygame
 import os
-import platform
 from Player import Player
 from StartMenu import StartMenu
-#from ImageHandler import ImageHandler
+from GameState import GameState
 
 class GameEngine:
 
     #Keep gamewindow centered
     os.environ['SDL_VIDEO_CENTERED'] = '1'
+
+    def set_state(self,str_state):
+        if(str_state == "game"):
+            current_state = game
+        elif(str_state == "menu"):
+            current_state = menu
+            
 
     def game_loop(self):
 
@@ -25,31 +31,26 @@ class GameEngine:
         background_colour = [0,0,0]
         
         menu = StartMenu()
+        game = GameState()
+        current_state = menu
         
         screen = pygame.display.set_mode((screen_width,screen_height))
         pygame.display.set_caption("The chronicles of Mosterann")
-        screen.fill(background_colour) #Background colour
-        player = Player()
-        
+        screen.fill(background_colour) #Background colour        
 
         #Game functions
         def handle_keyevents():
-            y = 1
+            for event in pygame.event.get():
+                current_state.handle_keyevents(event)
             #handle keyevents - TODO
 
         def update():
-            x = 1
+            current_state.update()
             #update all - TODO
 
-        def render_menu():
-            render_list = menu.get_button_list()
-            for button in render_list:
-                screen.blit(button.get_image(),(button.get_x_pos(),button.get_y_pos()))
-
         def render_all():
-            #render all - TODO
-            render_menu()
-            #screen.blit(player.get_image(),(player.get_x_pos(),player.get_y_pos()))
+            current_state.render(screen)
+            #Update the screen
             pygame.display.flip()
 
         

@@ -29,6 +29,9 @@ class Button:
     def get_x_pos(self):
         return self.x_pos
 
+    def set_x_pos(self, new_x_pos):
+        self.x_pos = new_x_pos
+    
     def get_y_pos(self):
         return self.y_pos
 
