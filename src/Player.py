@@ -16,7 +16,7 @@ class Player:
     width = 0
     height = 0
     hp = 10
-    image_name = "megaman.bmp"
+    image_name = "images/megaman.jpg"
     image_surf = pygame.image.load(image_name)
     image_rect = 0
 
