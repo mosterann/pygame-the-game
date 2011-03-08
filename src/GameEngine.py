@@ -40,8 +40,11 @@ class GameEngine:
 
         #Game functions
         def handle_keyevents():
-            for event in pygame.event.get():
-                current_state.handle_keyevents(event)
+            events = pygame.event.get()
+            for e in events:
+                current_state.handle_keyevents(e)
+                if e.type == pygame.QUIT:
+                    running = False
             #handle keyevents - TODO
 
         def update():
@@ -62,12 +65,6 @@ class GameEngine:
             handle_keyevents()
             update()
             render_all()
-
-            event = pygame.event.wait()
-            if event.type == pygame.QUIT:
-                running = False
-
-
 
     #Clean up
     def clean_up(self):

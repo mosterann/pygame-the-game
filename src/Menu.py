@@ -10,10 +10,11 @@ class Menu:
     button_list = []
 
     def handle_keyevents(self, event):
-        if(event.type == pygame.KEYDOWN):
-            print("Hasse")
-            if(event.key == pygame.K_RIGHT):
-                button_list[0].set_x_pos(500)
+        if(event.type == pygame.KEYDOWN or event.type == pygame.KEYUP):
+            print(event.key)
+            if(event.key == 274):
+                self.button_list[0].set_x_pos(500)
+                
 
     def update(self):
         # TODO
