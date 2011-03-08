@@ -19,7 +19,6 @@ class GameEngine:
             current_state = game
         elif(str_state == "menu"):
             current_state = menu
-            
 
     def game_loop(self):
 
@@ -29,11 +28,11 @@ class GameEngine:
         screen_height = 600
         screen_width = 800
         background_colour = [0,0,0]
-        
+
         menu = StartMenu()
         game = GameState()
         current_state = menu
-        
+
         screen = pygame.display.set_mode((screen_width,screen_height))
         pygame.display.set_caption("The chronicles of Mosterann")
         screen.fill(background_colour) #Background colour        
@@ -52,15 +51,12 @@ class GameEngine:
             #update all - TODO
 
         def render_all():
+            screen.fill(background_colour) #Background colour
             current_state.render(screen)
             #Update the screen
             pygame.display.flip()
 
-        
-            
-
-
-        #Main gameloop    
+        #Main gameloop
         while running:
             handle_keyevents()
             update()

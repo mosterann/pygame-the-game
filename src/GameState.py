@@ -7,7 +7,6 @@ class GameState:
 
     running = False
 
-
     def handle_keyevents(self, event):
         # TODO
         y = 1
@@ -15,7 +14,7 @@ class GameState:
     def update(self):
         # TODO
         x = 1
-        
+
     def render(self, screen):
         #Update background
         for obj in self.background_list:

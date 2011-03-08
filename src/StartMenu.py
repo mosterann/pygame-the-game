@@ -14,4 +14,3 @@ class StartMenu(Menu):
 
         self.add_button(game_button)
         self.add_button(quit_button)
-    

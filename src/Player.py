@@ -8,7 +8,7 @@
 import pygame
 
 class Player:
-    
+
     #Initialize variables
     movement_speed = 5
     x_pos = 0
@@ -62,5 +62,3 @@ class Player:
     def set_image_rect(self, new_image_rect):
         self.image_rect = new_image_rect
 
-    
-    

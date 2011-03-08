@@ -14,12 +14,11 @@ class Menu:
             print(event.key)
             if(event.key == 274):
                 self.button_list[0].set_x_pos(500)
-                
 
     def update(self):
         # TODO
         x = 1
-        
+
     def render(self, screen):
         for button in self.button_list:
             screen.blit(button.get_image(),(button.get_x_pos(),button.get_y_pos()))
@@ -29,6 +28,3 @@ class Menu:
 
     def get_button_list(self):
         return self.button_list
-    
-
-    

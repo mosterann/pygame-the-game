@@ -14,7 +14,6 @@ class Button:
     height = 0
     image_surf = 0
     image_rect = 0
-    
 
     def __init__(self, image_path, x_pos, y_pos, width, height):
         self.image_path = image_path
@@ -24,14 +23,12 @@ class Button:
         self.height = height
         self.image_surf = pygame.image.load(image_path)
 
-
-
     def get_x_pos(self):
         return self.x_pos
 
     def set_x_pos(self, new_x_pos):
         self.x_pos = new_x_pos
-    
+
     def get_y_pos(self):
         return self.y_pos
 
