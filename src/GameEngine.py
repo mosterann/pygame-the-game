@@ -11,6 +11,19 @@ from GameState import GameState
 
 class GameEngine:
 
+    pygame.init()
+    running = True
+    screen_height = 600
+    screen_width = 800
+    background_colour = [0,0,0]
+
+    menu = StartMenu()
+    game = GameState()
+    current_state = menu
+
+    screen = pygame.display.set_mode((screen_width,screen_height))
+    pygame.display.set_caption("The chronicles of Mosterann")
+
     #Keep gamewindow centered
     os.environ['SDL_VIDEO_CENTERED'] = '1'
 
@@ -21,48 +34,34 @@ class GameEngine:
             current_state = menu
 
     def game_loop(self):
-
-        #Initialize variables
-        pygame.init()
-        running = True
-        screen_height = 600
-        screen_width = 800
-        background_colour = [0,0,0]
-
-        menu = StartMenu()
-        game = GameState()
-        current_state = menu
-
-        screen = pygame.display.set_mode((screen_width,screen_height))
-        pygame.display.set_caption("The chronicles of Mosterann")
-        screen.fill(background_colour) #Background colour        
+        
+    #Main gameloop
+        while self.running:
+            self.handle_keyevents()
+            self.update()
+            self.render_all()
 
         #Game functions
-        def handle_keyevents():
-            events = pygame.event.get()
-            for e in events:
-                current_state.handle_keyevents(e)
-                if e.type == pygame.QUIT:
-                    running = False
+    def handle_keyevents(self):
+        events = pygame.event.get()
+        for e in events:
+            self.current_state.handle_keyevents(e)
+            if e.type == pygame.QUIT:
+                self.running = False
             #handle keyevents - TODO
 
-        def update():
-            current_state.update()
-            #update all - TODO
+    def update(self):
+        self.current_state.update()
+    #update all - TODO
 
-        def render_all():
-            screen.fill(background_colour) #Background colour
-            current_state.render(screen)
-            #Update the screen
-            pygame.display.flip()
+    def render_all(self):
+        self.screen.fill(self.background_colour) #Background colour
+        self.current_state.render(self.screen)
+    #Update the screen
+        pygame.display.flip()
 
-        #Main gameloop
-        while running:
-            handle_keyevents()
-            update()
-            render_all()
 
-    #Clean up
+
     def clean_up(self):
         pygame.quit()
 

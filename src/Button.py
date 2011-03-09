@@ -32,5 +32,8 @@ class Button:
     def get_y_pos(self):
         return self.y_pos
 
+    def set_y_pos(self, new_y_pos):
+        self.y_pos = new_y_pos
+
     def get_image(self):
         return self.image_surf
