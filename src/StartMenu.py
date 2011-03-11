@@ -13,5 +13,5 @@ class StartMenu(Menu):
                    "images/exit.png"]
 
     def __init__(self):
-        for buttonobj in ButtonList(self.menuentries, 100,100,10,"vert"):
+        for buttonobj in ButtonList(self.menuentries, 0,100,10,"vert"):
             self.add_button(buttonobj)

@@ -13,8 +13,8 @@ class GameEngine:
 
     pygame.init()
     running = True
-    screen_height = 600
-    screen_width = 800
+    screen_height = 200
+    screen_width = 320
     background_colour = [0,0,0]
 
     menu = StartMenu()

@@ -12,6 +12,8 @@ class Menu:
     selectedbutton = 0
     cursor = Cursor("images/arrow.png",100,0,100,100)
     introani = True
+    clock = pygame.time.Clock()
+    offset= 300
 
     def handle_keyevents(self, event):
         if(event.type == pygame.KEYDOWN):
@@ -26,6 +28,17 @@ class Menu:
 
     def update(self):
         # TODO
+        self.clock.tick(30) #Fps limiter
+
+        if self.introani:
+            for button in self.button_list:
+                button.set_x_pos(100 - self.offset)
+                self.offset = self.offset * 0.9
+
+            if self.offset < 1:
+                self.introani = False
+                print ("done")
+        
         if self.selectedbutton >= len(self.button_list):
             self.selectedbutton = 0
         elif self.selectedbutton < 0:
