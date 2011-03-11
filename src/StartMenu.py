@@ -4,13 +4,14 @@
 #Gamedevelopers: Mosterann and Darkdefender
 
 from Menu import Menu
-from Button import Button
+from Button import ButtonList
 
 class StartMenu(Menu):
 
-    def __init__(self):
-        game_button = Button("images/start.png",100,0,100,100)
-        quit_button = Button("images/exit.png",100,400,100,100)
+    menuentries = ["images/start.png",
+                   "images/options.png",
+                   "images/exit.png"]
 
-        self.add_button(game_button)
-        self.add_button(quit_button)
+    def __init__(self):
+        for buttonobj in ButtonList(self.menuentries, 100,100,10,"vert"):
+            self.add_button(buttonobj)

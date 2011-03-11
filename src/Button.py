@@ -37,3 +37,19 @@ class Button:
 
     def get_image(self):
         return self.image_surf
+
+def ButtonList(imagelist, xcord, ycord, spacing, layout):
+    
+    buttonobjlist = []
+    buttonnr = 0
+
+    if layout == "vert":
+        for img in imagelist:
+            buttonobjlist.append(Button(img, xcord, ycord + (spacing * buttonnr), 100, 100))
+            buttonnr += 1
+    else:
+        for img in imagelist:
+            buttonobjlist.append(Button(img, xcord + (spacing * buttonnr), ycord, 100, 100))
+            buttonnr += 1
+
+    return buttonobjlist
